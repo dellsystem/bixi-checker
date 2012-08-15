@@ -1,0 +1,35 @@
+"""
+Edit this file and copy it over to conf.py.
+"""
+
+# Possibilities: capitale (for Ottawa/Gatineau), toronto, montreal
+city = 'montreal'
+
+# Add all the stations you want to give a custom name to here
+stations = {
+    1: 'Right outside house',
+    2: 'Right outside work',
+    3: '1 block from work',
+    9001: 'The banana stand',
+}
+
+# Set locations, with nearby bixi stations listed in order of preference
+locations = {
+    'home': [
+        1,
+    ],
+    'work': [
+        2,
+        3,
+    ],
+    'docks': [
+        100,
+        9001,
+    ],
+}
+
+# Optionally, define custom routes here
+routes = {
+    'hw': ('home', 'work'),
+    'wh': ('work', 'home'),
+}
