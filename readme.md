@@ -16,8 +16,6 @@ Nearest to home: 15 bikes
 Nearest to work: 27 docks
 ```
 
-```
-
 Setup instructions
 ------------------
 
