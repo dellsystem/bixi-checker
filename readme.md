@@ -36,7 +36,7 @@ Modes
 API
 ---
 
-As bixi.com doesn't seem to have an official API (just some dynamically-generated Javascript), I've created a Python module, bixiapi.py, that wraps around it. `bixiapi` exposes one method - the `get_stations()` method - which takes in the identifier for the desired city (either "montreal", "toronto", or "capitale")and returns a dictionary containing the information for all the stations in that city. Any required type conversion is taken care of (as the bixi.com website returns everything as a string).
+As bixi.com doesn't seem to have an official API (just some dynamically-generated Javascript), I've created a Python module, bixiapi.py, that wraps around it. `bixiapi` exposes one method - the `get_stations()` method - which takes in the identifier for the desired city (either "montreal", "toronto", or "capitale") and returns a dictionary containing the information for all the stations in that city. Any required type conversion is taken care of (as the bixi.com website returns everything as a string).
 
 The format looks like this:
 
