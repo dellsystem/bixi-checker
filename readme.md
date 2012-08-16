@@ -11,7 +11,7 @@ Simple example
 To check if there's a route from home to work:
 
 ```
-waldo@dell-laptop bixi $: ./bixi.py go home work
+$: ./bixi go home work
 Nearest to home: 15 bikes
 Nearest to work: 27 docks
 ```
@@ -34,6 +34,45 @@ Modes
 * `search`: `./bixi.py search QUERY`
 * `go`: `./bixi.py go START_LOCATION END_LOCATION`
 * `route`: `./bixi.py route ROUTE_NAME`
+
+API
+---
+
+As bixi.com doesn't seem to have an official API (just some dynamically-generated Javascript), I've created a Python module, bixiapi.py, that wraps around it. `bixiapi` exposes one method - the `get_stations()` method - which takes in the identifier for the desired city (either "montreal", "toronto", or "capitale")and returns a dictionary containing the information for all the stations in that city. Any required type conversion is taken care of (as the bixi.com website returns everything as a string).
+
+The format looks like this:
+
+```python
+{
+    # Key: station ID (as used internally, but converted to an int)
+    1: {
+        'docks': 10, # converted to an int
+        'bikes': 10, # converted to an int
+        'name': 'Street 1 / Street 2',
+        'longitude': -77.7, # converted to a float
+        'latitude': 44.4, # converted to a float
+        'installed': true, # converted to a bool
+        'locked': false, # converted to a bool
+        'temporary': false, # converted to a bool
+        'sponsor_name': None, # either a string or None
+        'sponsor_link': None, # either a string or None
+        'sponsor_logo': None, # either a string or None
+    },
+    # ...
+}
+```
+
+Usage example
+
+```python
+import bixiapi
+
+stations = bixiapi.get_stations('montreal')
+
+for station_id, station_data in stations:
+    print station_id
+    print station_data['name']
+```
 
 License
 -------
