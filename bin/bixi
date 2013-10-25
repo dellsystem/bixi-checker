@@ -49,7 +49,7 @@ if args.mode in modes:
     stations = scraper.get_stations(conf.city)
 
     if args.mode == 'search':
-        query = args.arguments[0]
+        query = args.arguments[0].lower()
         for station_id, station in stations.iteritems():
             if query in station['name'].lower():
                 print "%s: %s" % (station_id, station['name'])
